@@ -22,8 +22,12 @@
                 <td scope="row">{{$project->id}}</td>
                 <td>{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
-                <td><img class="w-75" src="{{asset('storage/' . $project->cover_image)}}" alt=""></td>
 
+                @if($project->cover_image)
+                <td><img class="w-75" src="{{asset('storage/' . $project->cover_image)}}" alt=""></td>
+                @else
+                <td><img class="w-75" src="{{asset('storage/placeholders/placeholder-1.png' )}}" alt=""></td>
+                @endif
                 <td>{{$project->description}}</td>
                 <td class="d-flex flex-column">
                     <a class="btn btn-primary btn-sm my-1" href="{{route('admin.projects.show', $project->slug)}}" role="button"><i class="fa fa-eye fa-sm fa-fw" aria-hidden="true"></i>
