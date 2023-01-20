@@ -24,9 +24,9 @@
                 <td>{{$project->slug}}</td>
 
                 @if($project->cover_image)
-                <td><img class="w-75" src="{{asset('storage/' . $project->cover_image)}}" alt=""></td>
+                <td><img class="w-25" src="{{asset('storage/' . $project->cover_image)}}" alt=""></td>
                 @else
-                <td><img class="w-75" src="{{asset('storage/placeholders/placeholder-1.png' )}}" alt=""></td>
+                <td><img class="w-25" src="{{asset('storage/placeholders/placeholder-1.png' )}}" alt=""></td>
                 @endif
                 <td>{{$project->description}}</td>
                 <td class="d-flex flex-column">
