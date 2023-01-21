@@ -80,9 +80,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link {{Route::currentRouteName() === 'admin.types.index' ? 'active' : ''}}" href="{{route('admin.types.index')}}">
                                     <span data-feather="file" class="align-text-bottom"></span>
-                                    <i class="fas fa-folder fa-sm fa-fw"></i>
+                                    <i class="fa-solid fa-folder-tree"></i>
                                     Types
                                 </a>
                             </li>
