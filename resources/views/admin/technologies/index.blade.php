@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-5">
             <h3 class="pb-4">Create New Technology</h3>
-            <form class="" action="{{route('admin.types.store')}}" method="post">
+            <form class="" action="{{route('admin.technologies.store')}}" method="post">
                 @csrf
                 <div class="input-group mb-3">
                     <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="type technology" aria-label="Type name" aria-describedby="basic-addon" value="{{ old('name') }}">
@@ -59,7 +59,7 @@
                             <td>{{$technology->slug}}</td>
                             <td>
                                 <!-- Modal trigger button -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteType-{{$technology->slug}}">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteTechnology-{{$technology->slug}}">
                                     <i class="fa-solid fa-trash text-white"></i>
                                 </button>
 
@@ -69,11 +69,11 @@
                                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="modaltechnologyId-{{$technology->slug}}">Delete
+                                                <h5 class="modal-title text-dark" id="modaltechnologyId-{{$technology->slug}}">Delete
                                                     technology</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body text-dark">
                                                 Do you want to delete {{$technology->name}}?
                                             </div>
                                             <div class="modal-footer">

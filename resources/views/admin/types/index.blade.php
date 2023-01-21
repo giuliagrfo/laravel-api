@@ -69,11 +69,11 @@
                                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="modaltypeId-{{$type->slug}}">Delete
+                                                <h5 class="modal-title text-dark" id="modaltypeId-{{$type->slug}}">Delete
                                                     Type</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body text-dark">
                                                 Do you want to delete {{$type->name}}?
                                             </div>
                                             <div class="modal-footer">

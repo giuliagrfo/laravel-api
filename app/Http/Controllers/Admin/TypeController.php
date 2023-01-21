@@ -46,7 +46,7 @@ class TypeController extends Controller
 
         Type::create($val_data);
 
-        return view('admin.types.index')->with('message', 'Type added successfully');
+        return to_route('admin.types.index')->with('message', 'Type added successfully');
     }
 
     /**
