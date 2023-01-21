@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Technology;
+use App\Http\Requests\StoreTechnologyRequest;
 use Illuminate\Http\Request;
 
 class TechnologyController extends Controller
@@ -14,7 +16,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::all();
+        return view('admin.technologies.index', compact('technologies'));
     }
 
     /**
@@ -30,12 +33,20 @@ class TechnologyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\StoreTechnologyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTechnologyRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $technology_slug = Technology::generateTechnologySlug($val_data['name']);
+
+        $val_data['slug'] = $technology_slug;
+
+        Technology::create($val_data);
+
+        return to_route('admin.technologies.index')->with('message', 'Technology added successfully');
     }
 
     /**
@@ -67,9 +78,17 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Technology $technology)
     {
-        //
+        $val_data = $request->validated();
+
+        $technology_slug = Technology::generateTechnologySlug($val_data['name']);
+
+        $val_data['slug'] = $technology_slug;
+
+        $technology->update($val_data);
+
+        return to_route('admin.technologies.index')->with('message', 'Technology modified successfully');
     }
 
     /**
@@ -78,8 +97,9 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return to_route('admin.technologies.index')->with('message', 'Technology deleted successfully');
     }
 }
