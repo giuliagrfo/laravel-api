@@ -25,7 +25,7 @@
     <div class="mb-3">
         <label for="type_id" class="form-label">Types</label>
         <select class="form-select form-select-lg @error('type_id') 'is-invalid' @enderror" name="type_id" id="type_id">
-            <option selected>Select Type</option>
+            <option selected disabled>Select Type</option>
 
             @foreach ($types as $type )
             <option value="{{$type->id}}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{$type->name}}</option>
@@ -38,12 +38,12 @@
     @enderror
     <div class="mb-3">
         <label for="technologies" class="form-label">Technologies</label>
-        <select multiple class="form-select form-select-lg" name="technologies[]" id="technologies">
-            <option value="" disabled>Select a Technology</option>
+        <select class="form-select form-select-lg" name="technologies[]" id="technologies">
+            <option selected disabled>Select a Technology</option>
 
             @forelse ($technologies as $technology )
             @if($errors->any())
-            <option value="{{$technology->id}}" {{ in_array('technology_id', old('technologies', [])) ? 'selected' : '' }}>{{$technology->name}}</option>
+            <option value="{{$technology->id}}" {{ in_array($technology->id, old('technologies', [])) ? 'selected' : '' }}>{{$technology->name}}</option>
             @else
             <option value="{{$technology->id}}">{{$technology->name}}</option>
             @endif
