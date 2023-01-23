@@ -2,9 +2,9 @@
 
 @section('content')
 <h1>{{$project->title}}</h1>
+<h6>Slug: {{$project->slug}}</h6>
 <hr>
-<h5>Slug: {{$project->slug}}</h5>
-<img src="{{asset('storage/' . $project->cover_image)}}" alt="">
+<img class="w-25" src="{{asset('storage/' . $project->cover_image)}}" alt="">
 <div class="types">
     <strong>Type:</strong>
     {{ $project->type ? $project->type->name : 'Uncategorized'}}
