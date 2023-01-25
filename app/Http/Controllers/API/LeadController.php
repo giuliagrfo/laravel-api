@@ -24,7 +24,7 @@ class LeadController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'success' => false,
-                'error' => $validator->errors()
+                'errors' => $validator->errors()
             ]);
         }
 
