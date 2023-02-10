@@ -24,7 +24,7 @@
                         <td>{{ $project->slug }}</td>
 
                         @if ($project->cover_image)
-                            <td><img style="width:100px" src="{{ asset('/storage/' . $project->cover_image) }}"
+                            <td><img style="width:100px" src="{{ asset('storage/' . $project->cover_image) }}"
                                     alt="">
                             </td>
                         @else
